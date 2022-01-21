@@ -61,7 +61,60 @@ declare module "shapez/core/config" {
         };
     }
     export const A_B_TESTING_LINK_TYPE: "steam_2_npr";
+
     export namespace globalConfig {
+        export const tileSize: number;
+        export const halfTileSize: number;
+        export const beltSpeedItemsPerSecond: number;
+        export const achievementSliceDuration: number;
+        export const itemSpacingOnBelts: number;
+        export const assetsDpi: number;
+        export const assetsSharpness: number;
+        export const puzzleModeSpeed: number;
+        export const chunkAggregateSize: number;
+        export const mapChunkSize: number;
+        export const readerAnalyzeIntervalSeconds: number;
+        export const buildingSpeeds: { [key: string]: number };
+        export const smoothing: {
+            quality: string;
+            smoothMainCanvas: boolean;
+        };
+        export const debug: {
+            renderForTrailer: boolean;
+            framePausesBetweenTicks: number;
+            disableSavegameWrite: boolean;
+            fastGameEnter: boolean;
+            noArtificialDelays: boolean;
+            testClipping: boolean;
+            logTimestamps: boolean;
+            disableLoggingLogSources: boolean;
+            testTranslations: boolean;
+            disableMapOverwiew: boolean;
+            disableTimedButtons: boolean;
+            testAchievements: boolean;
+            checkBeltPaths: boolean;
+            instantBelts: boolean;
+            blueprintsNoCost: boolean;
+            testCulling: boolean;
+            manualTickOnly: boolean;
+            disableLogicTicks: boolean;
+            showAtlasInfo: boolean;
+            disableSlowAsserts: boolean;
+            allBuildingsUnlocked: boolean;
+            showAcceptorEjectors: boolean;
+            showEntityBounds: boolean;
+            enableEnitityInspector: boolean;
+            renderChanges: boolean;
+            disableUnlockDialog: boolean;
+            instantMiners: boolean;
+            doNotRenderStatics: boolean;
+            renderWireRotations: boolean;
+            framePausedBetweenTicks: boolean;
+            externalModUrl: string;
+            disableMusic: boolean;
+            testAds: boolean;
+            testPuzzleMod: boolean;
+        };
         export const minerSpeedItemsPerSecond: number;
         export const mapChunkWorldSize: number;
         export const mapChunkOverviewMinZoom: number;
@@ -2734,6 +2787,7 @@ declare module "shapez/game/components/item_processor" {
         export const filter: string;
         export const reader: string;
         export const goal: string;
+        export var terminal: string;
     }
     export type enumItemProcessorRequirements = string;
     export namespace enumItemProcessorRequirements {
@@ -9851,7 +9905,9 @@ declare module "shapez/game/dynamic_tickrate" {
     import { GameRoot } from "shapez/game/root";
 }
 declare module "shapez/game/hub_goals" {
-    export const MOD_ITEM_PROCESSOR_SPEEDS: {};
+    export const MOD_ITEM_PROCESSOR_SPEEDS: {
+        terminal: (GameRoot) => number;
+    };
     export class HubGoals extends BasicSerializableObject {
         static getId(): string;
         static getSchema(): {

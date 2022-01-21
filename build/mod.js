@@ -94,18 +94,32 @@
 /***/ (function(module, exports) {
 
 undefined
+const { globalConfig } = shapez;
 const { enumItemProcessorTypes } = shapez;
 const { MOD_ITEM_PROCESSOR_SPEEDS } = shapez;
 const { ShapeItem } = shapez;
+const { GameRoot } = shapez;
 const { MOD_ITEM_PROCESSOR_HANDLERS } = shapez;
 const { Mod } = shapez;
 const { ModMetaBuilding } = shapez;
 
-// @ts-ignore
 enumItemProcessorTypes.terminal = "terminal";
 
+MOD_ITEM_PROCESSOR_SPEEDS.terminal = function (/** @type GameRoot */ root) {
+    let processorType = enumItemProcessorTypes.terminal;
+    assert(
+        globalConfig.buildingSpeeds[processorType].toString,
+        "Processor type has no speed set in globalConfig.buildingSpeeds: " + processorType
+    );
+    return (
+        globalConfig.beltSpeedItemsPerSecond *
+        root.hubGoals.upgradeImprovements.processors *
+        globalConfig.buildingSpeeds[processorType]
+    );
+};
+
 // @ts-ignore
-MOD_ITEM_PROCESSOR_SPEEDS.terminal = () => 100;
+globalConfig.buildingSpeeds.terminal = 1 / 1;
 
 // @ts-ignore
 MOD_ITEM_PROCESSOR_HANDLERS.terminal = function (payload) {
@@ -128,8 +142,8 @@ class MetaDemoModBuilding extends ModMetaBuilding {
         return [
             {
                 variant: shapez.defaultBuildingVariant,
-                name: "A test name",
-                description: "A test building",
+                name: "Terminal",
+                description: "Wirelessly accepts items from one side and deposits into hub storage.",
 
                 regularImageBase64: RESOURCES["demoBuilding.png"],
                 blueprintImageBase64: RESOURCES["demoBuildingBlueprint.png"],
