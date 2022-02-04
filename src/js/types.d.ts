@@ -4854,11 +4854,11 @@ declare module "shapez/game/key_action_mapper" {
         export const mods: {};
         export namespace general {
             export namespace confirm {
-                import keyCode = Enter;
+                import keyCode = KEYCODES.Enter;
                 export { keyCode };
             }
             export namespace back {
-                import keyCode_1 = Escape;
+                import keyCode_1 = KEYCODES.Escape;
                 export { keyCode_1 as keyCode };
                 export const builtin: boolean;
             }
@@ -4877,15 +4877,15 @@ declare module "shapez/game/key_action_mapper" {
                 export { keyCode_4 as keyCode };
             }
             export namespace toggleHud {
-                import keyCode_5 = F2;
+                import keyCode_5 = KEYCODES.F2;
                 export { keyCode_5 as keyCode };
             }
             export namespace exportScreenshot {
-                import keyCode_6 = F3;
+                import keyCode_6 = KEYCODES.F3;
                 export { keyCode_6 as keyCode };
             }
             export namespace toggleFPSInfo {
-                import keyCode_7 = F4;
+                import keyCode_7 = KEYCODES.F4;
                 export { keyCode_7 as keyCode };
             }
             export namespace switchLayers {
@@ -4893,7 +4893,7 @@ declare module "shapez/game/key_action_mapper" {
                 export { keyCode_8 as keyCode };
             }
             export namespace showShapeTooltip {
-                import keyCode_9 = Alt;
+                import keyCode_9 = KEYCODES.Alt;
                 export { keyCode_9 as keyCode };
             }
         }
@@ -4915,20 +4915,20 @@ declare module "shapez/game/key_action_mapper" {
                 export { keyCode_13 as keyCode };
             }
             export namespace mapMoveFaster {
-                import keyCode_14 = Shift;
+                import keyCode_14 = KEYCODES.Shift;
                 export { keyCode_14 as keyCode };
             }
             export namespace centerMap {
-                import keyCode_15 = Space;
+                import keyCode_15 = KEYCODES.Space;
                 export { keyCode_15 as keyCode };
             }
             export namespace mapZoomIn {
-                import keyCode_16 = Plus;
+                import keyCode_16 = KEYCODES.Plus;
                 export { keyCode_16 as keyCode };
                 export const repeated: boolean;
             }
             export namespace mapZoomOut {
-                import keyCode_17 = Minus;
+                import keyCode_17 = KEYCODES.Minus;
                 export { keyCode_17 as keyCode };
                 const repeated_1: boolean;
                 export { repeated_1 as repeated };
@@ -5058,23 +5058,23 @@ declare module "shapez/game/key_action_mapper" {
                 export { keyCode_47 as keyCode };
             }
             export namespace rotateInverseModifier {
-                import keyCode_48 = Shift;
+                import keyCode_48 = KEYCODES.Shift;
                 export { keyCode_48 as keyCode };
             }
             export namespace rotateToUp {
-                import keyCode_49 = ArrowUp;
+                import keyCode_49 = KEYCODES.ArrowUp;
                 export { keyCode_49 as keyCode };
             }
             export namespace rotateToDown {
-                import keyCode_50 = ArrowDown;
+                import keyCode_50 = KEYCODES.ArrowDown;
                 export { keyCode_50 as keyCode };
             }
             export namespace rotateToRight {
-                import keyCode_51 = ArrowRight;
+                import keyCode_51 = KEYCODES.ArrowRight;
                 export { keyCode_51 as keyCode };
             }
             export namespace rotateToLeft {
-                import keyCode_52 = ArrowLeft;
+                import keyCode_52 = KEYCODES.ArrowLeft;
                 export { keyCode_52 as keyCode };
             }
             export namespace cycleBuildingVariants {
@@ -5082,7 +5082,7 @@ declare module "shapez/game/key_action_mapper" {
                 export { keyCode_53 as keyCode };
             }
             export namespace cycleBuildings {
-                import keyCode_54 = Tab;
+                import keyCode_54 = KEYCODES.Tab;
                 export { keyCode_54 as keyCode };
             }
             export namespace switchDirectionLockSide {
@@ -5096,11 +5096,11 @@ declare module "shapez/game/key_action_mapper" {
         }
         export namespace massSelect {
             export namespace massSelectStart {
-                import keyCode_57 = Ctrl;
+                import keyCode_57 = KEYCODES.Ctrl;
                 export { keyCode_57 as keyCode };
             }
             export namespace massSelectSelectMultiple {
-                import keyCode_58 = Shift;
+                import keyCode_58 = KEYCODES.Shift;
                 export { keyCode_58 as keyCode };
             }
             export namespace massSelectCopy {
@@ -5116,7 +5116,7 @@ declare module "shapez/game/key_action_mapper" {
                 export { keyCode_61 as keyCode };
             }
             export namespace confirmMassDelete {
-                import keyCode_62 = Delete;
+                import keyCode_62 = KEYCODES.Delete;
                 export { keyCode_62 as keyCode };
             }
             export namespace pasteLastBlueprint {
@@ -5126,19 +5126,19 @@ declare module "shapez/game/key_action_mapper" {
         }
         export namespace placementModifiers {
             export namespace lockBeltDirection {
-                import keyCode_64 = Shift;
+                import keyCode_64 = KEYCODES.Shift;
                 export { keyCode_64 as keyCode };
             }
             export namespace placementDisableAutoOrientation {
-                import keyCode_65 = Ctrl;
+                import keyCode_65 = KEYCODES.Ctrl;
                 export { keyCode_65 as keyCode };
             }
             export namespace placeMultiple {
-                import keyCode_66 = Shift;
+                import keyCode_66 = KEYCODES.Shift;
                 export { keyCode_66 as keyCode };
             }
             export namespace placeInverse {
-                import keyCode_67 = Alt;
+                import keyCode_67 = KEYCODES.Alt;
                 export { keyCode_67 as keyCode };
             }
         }
@@ -5454,9 +5454,9 @@ declare module "shapez/game/game_mode" {
         getMinimumZoom(): number;
         /** @returns {number} */
         getMaximumZoom(): number;
-        /** @returns {Object<string, Array>} */
+        /** @returns {Object<string, Array<TierRequirement>} */
         getUpgrades(): {
-            [x: string]: Array;
+            [x: string]: Array<TierRequirement>;
         };
         throughputDoesNotMatter(): boolean;
         /**
